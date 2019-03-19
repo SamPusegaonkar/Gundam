@@ -1,0 +1,17 @@
+<launch>
+
+	<param name="robot_description" textfile="$(find test_gundum_model)/urdf/robot.urdf"/>
+	<!--<node name="spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model yeet"/>-->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<param name="use_gui" value="TRUE"/>
+	</node>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+	<node name="rviz" pkg="rviz" type="rviz" args=""/>
+	
+</launch>
+
+
+
+
+
+
