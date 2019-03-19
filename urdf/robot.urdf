@@ -36,6 +36,7 @@
 	   </visual>
 	</link>
 	<!-- Right Arm-->
+	<!--
   	<link name="right_shoulder_link">                 
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -46,7 +47,7 @@
 				<color rgba="0 0 1 1.0"/>
 			</material>
 	   </visual>
-	</link>
+	</link>-->
 	<link name="right_shoulder_forward_link">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -124,7 +125,7 @@
 			</material>
 	   </visual>
 	</link>
-	<!-- Left Arm-->
+	<!-- Left Arm
   	<link name="left_shoulder_link">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -136,7 +137,7 @@
 				<color rgba="1 0 0 1.0"/>
 			</material>
 	   </visual>
-	</link>
+	</link>-->
 	<link name="left_shoulder_forward_link">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -407,7 +408,7 @@
 	    	<parent link="left_upper_arm_link"/>
 	    	<child link="left_elbow_link"/>
 	    	<origin xyz="-0.05 0 -.5" rpy="0 0 0"/>
-	       	<limit lower="-3.146" upper="3.146" effort="10" velocity="3"/>
+	       	<limit lower="-1.55" upper="1.55" effort="10" velocity="3"/>
 		<axis xyz="0 0 1"/>
 	</joint>
 	<joint name="left_upper_arm_joint" type="fixed">
@@ -423,23 +424,24 @@
 		<axis xyz="1 0 0"/>
 	</joint>
 	<joint name="left_shoulder_forward_joint" type="revolute">
-	    	<parent link="left_shoulder_link"/>
+	    	<parent link="shoulder_link"/>
 	    	<child link="left_shoulder_forward_link"/>
 	    	<origin xyz="0 1.25 3" rpy="0 0 0"/>
 	       	<limit lower="-1.57" upper="1.57" effort="10" velocity="3"/>
 		<axis xyz="0 0 1"/>
 	</joint>
+	<!--
 		<joint name="left_arm_shoulder" type="fixed">
     		<parent link="left_shoulder_link"/>
     		<child link="shoulder_link"/>
     		<origin xyz="0 0 0" rpy="0 0 0"/>
-	</joint>
-	
+	</joint>-->
+	<!--
 	<joint name="right_arm_shoulder" type="fixed">
 	    	<parent link="right_shoulder_link"/>
 	    	<child link="shoulder_link"/>
 	    	<origin xyz="0 0 0" rpy="0 0 0"/>
-	</joint>
+	</joint>-->
 	<joint name="right_hand_joint" type="fixed">
 	    	<parent link="right_wrist_link"/>
 	    	<child link="right_hand_link"/>
@@ -461,7 +463,7 @@
 	    	<parent link="right_upper_arm_link"/>
 	    	<child link="right_elbow_link"/>
 	    	<origin xyz="-0.05 0 -.5" rpy="0 0 0"/>
-	       	<limit lower="-3.146" upper="3.146" effort="10" velocity="3"/>
+	       	<limit lower="-1.5" upper="1.5" effort="10" velocity="3"/>
 		<axis xyz="0 0 1"/>
 	</joint>
  	<joint name="right_upper_arm_joint" type="fixed">
@@ -477,7 +479,7 @@
 		<axis xyz="1 0 0"/>
 	</joint>
  	<joint name="right_shoulder_forward_joint" type="revolute">
-	    	<parent link="right_shoulder_link"/>
+	    	<parent link="shoulder_link"/>
 	    	<child link="right_shoulder_forward_link"/>
 	    	<origin xyz="0 -1.25 3" rpy="0 0 0"/>
 	       	<limit lower="-1.57" upper="1.57" effort="10" velocity="3"/>
@@ -487,7 +489,7 @@
 	    	<parent link="shoulder_link"/>
 	    	<child link="neck_link"/>
 	    	<origin xyz="0 0 3.5" rpy="0 0 0"/>
-	       	<limit lower="-3.146" upper="3.146" effort="10" velocity="3"/>
+	       	<limit lower="-1.55" upper="1.55" effort="10" velocity="3"/>
 		<axis xyz="0 0 1"/>
 	</joint>
 	<joint name="neck_head_joint" type="fixed">
@@ -495,7 +497,7 @@
 	    	<child link="head_link"/>
 	    	<origin xyz="0 0 0.5" rpy="0 0 0"/>
 	 </joint>
-	<joint name="right_hand_joint" type="fixed">
+	<joint name="right_leg_joint" type="fixed">
 	    	<parent link="right_feet_link"/>
 	    	<child link="right_feet"/>
 	    	<origin xyz=".1 0 -.25" rpy="0 0 0"/>
@@ -538,7 +540,7 @@
 	       	<limit lower="-1.57" upper="1.57" effort="10" velocity="3"/>
 		<axis xyz="0 0 1"/>
 	</joint>
-	<joint name="left_hand_joint" type="fixed">
+	<joint name="left_leg_joint" type="fixed">
 	    	<parent link="left_feet_link"/>
 	    	<child link="left_feet"/>
 	    	<origin xyz=".1 0 -.25" rpy="0 0 0"/>
