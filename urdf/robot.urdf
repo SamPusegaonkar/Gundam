@@ -1,391 +1,947 @@
-<robot name="Gundum">
+<robot name="Gundam" >
 	<!-- Head-->
-  	<link name="head_link">                                
+  	<link name="head_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.9 0.9 .9"/>
+			</geometry>
+		</collision>                               
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.9 0.9 .9"/>
 			</geometry>
-	     	<material name="White">
+	     		<material name="White">
 				<color rgba="1 1 1 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="head_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<!-- Neck-->
   	<link name="neck_link">                              
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.25 0.30 .5"/>
+			</geometry>
+		</collision>                               
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.25 0.30 .5"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+		 </visual>
 	</link>
+	<gazebo reference="neck_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<!-- Shoulder-->
 	<link name="shoulder_link">		     
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 3.0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.3 2.4 0.5"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 3.0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.3 2.4 0.5"/>
 			</geometry>
-	     	<material name="White">
+	     		<material name="White">
 				<color rgba="1 1 1 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="shoulder_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<!-- Right Arm-->
-	<!--
-  	<link name="right_shoulder_link">                 
-		<visual>
+
+	<link name="right_shoulder_forward_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<box size="0.25 0.15 .5"/>
+				<box size="0.3 0.5 0.3"/>
 			</geometry>
-	     	<material name="Blue">
-				<color rgba="0 0 1 1.0"/>
-			</material>
-	   </visual>
-	</link>-->
-	<link name="right_shoulder_forward_link">
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.3 0.5 0.3"/>
 			</geometry>
-	     	<material name="Blue">
+	     		<material name="Blue">
 				<color rgba="0 0 1 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="right_shoulder_forward_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_shoulder_up_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size="0.3 0.5 0.3"/>
+			</geometry>
+		</collision>                               
+
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size="0.3 0.5 0.3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="right_shoulder_up_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_upper_arm_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length=".5"/>
+			</geometry>
+		</collision>                               
+
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length=".5"/>
 			</geometry>
-	     	<material name="Grey1">
+		     	<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
-	   </visual>
+	  	 </visual>
 	</link>
+	<gazebo reference="right_upper_arm_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_elbow_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 1.57"/>
+			<geometry>
+				<box size="0.35 0.35 .5"/>
+			</geometry>
+		</collision>                               
+
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 1.57"/>
 			<geometry>
 				<box size="0.35 0.35 .5"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
 	   </visual>
 	</link>
+	<gazebo reference="right_elbow_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_lower_arm_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length="1.1"/>
+			</geometry>
+		</collision>                               
+
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length="1.1"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
 	   </visual>
 	</link>
+	<gazebo reference="right_lower_arm_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_wrist_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size=".3 .5 .3"/>
+			</geometry>
+		</collision>                               
+
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size=".3 .5 .3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
-	<link name="right_hand_link">
+	<gazebo reference="right_wrist_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
+	<link name="right_hand_link">	
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size=".3 .1 .6"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size=".3 .1 .6"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.7 0.7 0.7 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
-	<!-- Left Arm
-  	<link name="left_shoulder_link">
-		<visual>
+	<gazebo reference="right_hand_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
+	<!-- Left Arm-->
+	<link name="left_shoulder_forward_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<box size="0.25 0.15 0.5"/>
+				<box size="0.3 0.5 0.3"/>
 			</geometry>
-          
-	     	<material name="Red">
-				<color rgba="1 0 0 1.0"/>
-			</material>
-	   </visual>
-	</link>-->
-	<link name="left_shoulder_forward_link">
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.3 0.5 0.3"/>
 			</geometry>
-	     	<material name="Blue">
+	     		<material name="Blue">
 				<color rgba="0 0 1 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_shoulder_forward_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_shoulder_up_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size="0.3 0.5 0.3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size="0.3 0.5 0.3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_shoulder_up_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_upper_arm_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length="0.5"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length="0.5"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_upper_arm_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_elbow_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 1.57"/>
+			<geometry>
+				<box size="0.35 0.35 .5"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 1.57"/>
 			<geometry>
 				<box size="0.35 0.35 .5"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_elbow_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_lower_arm_link">
+
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length="1.1"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length="1.1"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
-	<link name="left_wrist_link">
+	<gazebo reference="left_lower_arm_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
+	<link name="left_wrist_link">	
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size="0.3 0.5 0.3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size="0.3 0.5 0.3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_wrist_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_hand_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.3 0.1 0.6"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.3 0.1 0.6"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.7 0.7 0.7 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_hand_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<!-- Lower Body-->
 	<link name="hip_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 1.3" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.25 0.5 3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 1.3" rpy="0 0 0"/>
 			<geometry>
 				<box size="0.25 0.5 3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="hip_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<!-- Right Leg-->
 	<link name="right_hip_forward_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size=".3 .5 .3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size=".3 .5 .3"/>
 			</geometry>
-	     	<material name="Blue">
+	     			<material name="Blue">
 				<color rgba="0 0 1 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
-	
+	<gazebo reference="right_hip_forward_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_hip_up_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size=".3 .5 .3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size=".3 .5 .3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
 	   </visual>
 	</link>
+	<gazebo reference="right_hip_up_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_upper_leg_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length=".5"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length=".5"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="right_upper_leg_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_knee_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 1.57"/>
+			<geometry>
+				<box size=".35 .35 .5"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 1.57"/>
 			<geometry>
 				<box size=".35 .35 .5"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="right_knee_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_lower_leg_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length="1.1"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length="1.1"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
-	   </visual>
+	  	 </visual>
 	</link>
+	<gazebo reference="right_lower_leg_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_feet_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size=".3 .5 .3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size=".3 .5 .3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="right_feet_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="right_feet">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size=".6 .4 .1"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size=".6 .4 .1"/>
 			</geometry>
           
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.7 0.7 0.7 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="right_feet">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<!-- Left Leg-->
 	<link name="left_hip_forward_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size=".3 .5 .3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size=".3 .5 .3"/>
 			</geometry>
-	     	<material name="Blue">
+	     		<material name="Blue">
 				<color rgba="0 0 1 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_hip_forward_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_hip_up_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size=".3 .5 .3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size=".3 .5 .3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   		</visual>
 	</link>
+	<gazebo reference="left_hip_up_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_upper_leg_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length=".5"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length=".5"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_upper_leg_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_knee_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 1.57"/>
+			<geometry>
+				<box size=".35 0.35 .5"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 1.57"/>
 			<geometry>
 				<box size=".35 0.35 .5"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_knee_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_lower_leg_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.075" length="1.1"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<cylinder radius="0.075" length="1.1"/>
 			</geometry>
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.9 0.9 0.9 1.0"/>
 			</material>
-	   </visual>
+	   	</visual>
 	</link>
+	<gazebo reference="left_lower_leg_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_feet_link">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<box size=".3 .5 .3"/>
+			</geometry>
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="1.57 0 0"/>
 			<geometry>
 				<box size=".3 .5 .3"/>
 			</geometry>
-	     	<material name="Red">
+	     		<material name="Red">
 				<color rgba="1 0 0 1.0"/>
 			</material>
-	   </visual>
+		</visual>
 	</link>
+	<gazebo reference="left_feet_link">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
 	<link name="left_feet">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.18"/>
+			<inertia ixx="0.1" ixy="0.1"  ixz="0.1"  iyy="0.1"  iyz="0.1"  izz="0.1"/>	
+		</inertial> 
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size=".6 .4 .1"/>
+			</geometry>
+          
+		</collision>                               
+		
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
 				<box size=".6 .4 .1"/>
 			</geometry>
           
-	     	<material name="Grey1">
+	     		<material name="Grey1">
 				<color rgba="0.7 0.7 0.7 1.0"/>
 			</material>
-	   </visual>
+		</visual>
 	</link>
+	<gazebo reference="left_feet">
+		<kp>1000.0</kp>
+		<kd>1000.0</kd>
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+	</gazebo>
+
+
+
+
 	<!--Joints-->
 	<joint name="left_hand_joint" type="fixed">
 	    	<parent link="left_wrist_link"/>
